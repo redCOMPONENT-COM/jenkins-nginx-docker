@@ -3,3 +3,5 @@ logs/
 certs/
 .DS_Store
 .idea
+.env
+nginx/default.conf
