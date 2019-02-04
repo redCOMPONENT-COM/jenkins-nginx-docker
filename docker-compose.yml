@@ -2,7 +2,10 @@ version: '3.7'
 services:
 
   jenkins:
-    image: jenkins/jenkins:lts-alpine
+    image: jenkins.nginx.docker:lts-alpine
+    build:
+      context: ./
+      dockerfile: Dockerfile
     container_name: jenkins_main
     ports:
       - '50000:50000'
@@ -11,8 +14,6 @@ services:
       - ./jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - UID_JENKINS=${UID_JENKINS:-1000}
-      - GID_JENKINS=${GID_JENKINS:-1000}
       - JENKINS_OPTS=${JENKINS_OPTS:-""}
     restart: always
 
