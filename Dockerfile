@@ -37,7 +37,8 @@ RUN apk add --no-cache \
 	php7-pdo_mysql \
 	php7-session \
 	php7-gd \
-	php7-ftp
+	php7-ftp \
+	php7-imagick
 
 #===================================================
 # Node & Gulp
