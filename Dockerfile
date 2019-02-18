@@ -3,6 +3,10 @@ MAINTAINER Tito Alvarez <augustoalvarez@gmail.com>
 
 USER root
 
+# ensure docker group is set to 999 to match the same group from the host
+RUN sed -i "s/999/99/" /etc/group && \
+  addgroup -g 999 -S docker
+
 # Install Docker (docker-in-docker) and sudo
 RUN apk add --no-cache \
     docker \
