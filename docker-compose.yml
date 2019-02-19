@@ -13,6 +13,8 @@ services:
     volumes:
       - ./jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+      - ${KEY_PRIVATE:-./keys/id_rsa}:/var/jenkins_home/.ssh/id_rsa          # comment if no Private Key
+      - ${KEY_PUBLIC:-./keys/id_rsa.pub}:/var/jenkins_home/.ssh/id_rsa.pub   # comment if no Public Key
     environment:
       - JENKINS_OPTS=${JENKINS_OPTS:-""}
     restart: always

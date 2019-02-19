@@ -17,6 +17,14 @@ RUN adduser jenkins docker && \
 	echo "jenkins ALL=(root) NOPASSWD: /usr/bin/docker" > /etc/sudoers.d/jenkins && \
 	chmod 0440 /etc/sudoers.d/jenkins
 
+# Jenkins key folder
+RUN mkdir -p /var/jenkins_home/.ssh && \
+	chmod 0700 /var/jenkins_home/.ssh
+
+# SSH key validation removal
+RUN ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts && \
+	ssh-keyscan -t rsa gitlab.redhost.dk >> ~/.ssh/known_hosts
+
 # Install redWEB development tools
 
 #===================================================
