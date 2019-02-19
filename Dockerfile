@@ -72,6 +72,14 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 	&& php composer-setup.php --filename=composer --install-dir=/usr/local/bin \
 	&& php -r "unlink('composer-setup.php');"
 
+RUN composer -g config bin-dir /usr/local/bin && \
+	composer -g config vendor-dir /usr/local/lib/vendor
+
+#===================================================
+# Phing
+#===================================================
+RUN composer global require phing/phing
+
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
