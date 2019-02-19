@@ -22,8 +22,8 @@ RUN mkdir -p /var/jenkins_home/.ssh && \
 	chmod 0700 /var/jenkins_home/.ssh
 
 # SSH key validation removal
-RUN ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts && \
-	ssh-keyscan -t rsa gitlab.redhost.dk >> ~/.ssh/known_hosts
+RUN ssh-keyscan -t rsa github.com >> /var/jenkins_home/.ssh/known_hosts && \
+	ssh-keyscan -t rsa gitlab.redhost.dk >> /var/jenkins_home/.ssh/known_hosts
 
 # Install redWEB development tools
 
