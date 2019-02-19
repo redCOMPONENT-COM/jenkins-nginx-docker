@@ -48,9 +48,10 @@ RUN apk add --no-cache \
 #===================================================
 # Node & Gulp
 #===================================================
-RUN apk add --no-cache \
-    nodejs \
-    npm \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
+	apk add --no-cache \
+    nodejs=8.14.0-r0 \
+    npm=8.14.0-r0 \
     && npm install -g gulp
 
 #========================================
