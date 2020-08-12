@@ -2,10 +2,7 @@ version: '3.7'
 services:
 
   jenkins:
-    image: jenkins.nginx.docker:lts-alpine
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: redwebaps/jenkins
     container_name: jenkins_main
     ports:
       - '50000:50000'

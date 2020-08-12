@@ -6,3 +6,4 @@ keys/
 .idea
 .env
 nginx/default.conf
+.well-known
