@@ -27,6 +27,10 @@ RUN mkdir -p ~/.ssh && \
 
 USER root
 
+## Packages
+RUN apk add --no-cache \
+	zip
+
 # Install redWEB development tools
 
 #===================================================
