@@ -23,7 +23,7 @@ USER jenkins
 RUN mkdir -p ~/.ssh && \
 	chmod 0700 ~/.ssh && \
 	ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts && \
-	ssh-keyscan -t rsa gitlab.redhost.dk >> ~/.ssh/known_hosts
+	ssh-keyscan -t rsa gitlab.redweb.dk >> ~/.ssh/known_hosts
 
 USER root
 
