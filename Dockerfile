@@ -58,7 +58,8 @@ RUN apk add --no-cache \
 	php7-ftp \
 	php7-imagick \
 	php7-fileinfo \
-	php7-bcmath
+	php7-bcmath \
+	php7-sockets
 
 #===================================================
 # Node & Gulp
