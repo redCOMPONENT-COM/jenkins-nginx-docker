@@ -4,12 +4,12 @@ USER root
 
 # ensure docker group is set to 999 to match the same group from the host
 RUN sed -i "s/999/99/" /etc/group && \
-  addgroup -g 999 -S docker
+	addgroup -g 999 -S docker
 
 # Install Docker (docker-in-docker) and sudo
 RUN apk add --no-cache \
-    docker \
-    sudo
+	docker \
+	sudo
 
 # Adds Jenkins to the Docker users and sudoers
 RUN adduser jenkins docker && \
@@ -65,15 +65,15 @@ RUN apk add --no-cache \
 #===================================================
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
 	apk add --no-cache \
-    nodejs=8.14.0-r0 \
-    npm=8.14.0-r0 \
-    && npm install -g gulp
+	nodejs=8.14.0-r0 \
+	npm=8.14.0-r0 \
+	&& npm install -g gulp
 
 #========================================
 # Composer
 #========================================
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-	&& php -r "if (hash_file('SHA384', 'composer-setup.php') === '8a6138e2a05a8c28539c9f0fb361159823655d7ad2deecb371b04a83966c61223adc522b0189079e3e9e277cd72b8897') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+	&& php -r "if (hash_file('SHA384', 'composer-setup.php') === '795f976fe0ebd8b75f26a6dd68f78fd3453ce79f32ecb33e7fd087d39bfeb978342fb73ac986cd4f54edd0dc902601dc') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
 	&& php composer-setup.php --filename=composer --install-dir=/usr/local/bin \
 	&& php -r "unlink('composer-setup.php');"
 
